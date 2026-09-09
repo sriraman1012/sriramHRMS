@@ -1,0 +1,10 @@
+@host = http://localhost:5080
+
+### Login (should return a JWT token)
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "sriram",
+  "password": "sri@123"
+}

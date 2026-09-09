@@ -1,0 +1,52 @@
+# ===========================================================================
+#  Unipro Attendance — .gitignore
+# ===========================================================================
+
+# ---- SQL Server data files (locked by SQL Server; never commit) ----
+DATA/
+*.mdf
+*.ldf
+*.ndf
+
+# ---- Deploy copies, archives, DB backups (large / contain secrets) ----
+LIVE/
+*.rar
+*.zip
+*.bak
+*.BAK
+
+# ---- Secrets: real appsettings stay on the server (see appsettings.example.json) ----
+backend/Attendance.Api/appsettings.json
+backend/Attendance.Api/appsettings.Development.json
+backend/**/appsettings.json
+backend/**/appsettings.Development.json
+
+# ---- Node / frontend ----
+node_modules/
+frontend/node_modules/
+frontend/dist/
+npm-debug.log*
+yarn-error.log*
+.vite/
+
+# ---- .NET / backend build output ----
+[Bb]in/
+[Oo]bj/
+backend/publish/
+
+# Built SPA copied into the API at build time (regenerate with `npm run build` + copy)
+backend/Attendance.Api/wwwroot/
+
+# ---- Logs ----
+logs/
+*.log
+
+# ---- IDE / OS ----
+.vs/
+*.user
+*.suo
+Thumbs.db
+.DS_Store
+
+# ---- Claude Code local settings ----
+.claude/settings.local.json
