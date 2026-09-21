@@ -33,6 +33,7 @@ import HourlyPermission from './attendance/HourlyPermission.jsx'
 import HappyHours from './attendance/HappyHours.jsx'
 import TravelAdvance from './attendance/TravelAdvance.jsx'
 import ImplementationChecklist from './implementation/ImplementationChecklist.jsx'
+import EncryptDecrypt from './tools/EncryptDecrypt.jsx'
 import EmployeeSummaryReport from './reports/EmployeeSummaryReport.jsx'
 import AttendanceDetailReport from './reports/AttendanceDetailReport.jsx'
 import LeaveReport from './reports/LeaveReport.jsx'
@@ -82,6 +83,7 @@ const NAV = [
     ],
   },
   { key: 'implementation', label: 'Implementation', icon: Clipboard },
+  { key: 'encrypt', label: 'Encrypt / Decrypt', icon: Key },
   {
     group: 'reports', label: 'Reports', icon: BarChart,
     children: [
@@ -106,6 +108,7 @@ const PAGES = {
   'happy-hours': HappyHours,
   'travel-advance': TravelAdvance,
   implementation: ImplementationChecklist,
+  encrypt: EncryptDecrypt,
   'rpt-summary': EmployeeSummaryReport,
   'rpt-detail': AttendanceDetailReport,
   'rpt-leave': LeaveReport,

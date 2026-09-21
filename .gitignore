@@ -48,5 +48,9 @@ logs/
 Thumbs.db
 .DS_Store
 
+# ---- Office temporary lock files ----
+~$*
+*.tmp
+
 # ---- Claude Code local settings ----
 .claude/settings.local.json
