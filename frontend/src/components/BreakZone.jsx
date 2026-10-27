@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { X } from './icons.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
+import ArrowsPuzzle from './games/ArrowsPuzzle.jsx'
 import Snake from './games/Snake.jsx'
 import Pong from './games/Pong.jsx'
 import Breakout from './games/Breakout.jsx'
@@ -9,6 +10,7 @@ import MemoryMatch from './games/MemoryMatch.jsx'
 import TicTacToe from './games/TicTacToe.jsx'
 
 const GAMES = [
+  { key: 'arrows', name: 'Tap Away Arrows', emoji: '➡️', comp: ArrowsPuzzle, how: 'Tap an arrow with a clear path to send it flying — clear the board' },
   { key: 'snake', name: 'Snake', emoji: '🐍', comp: Snake, how: 'Arrow keys / WASD to move' },
   { key: 'pong', name: 'Ping Ball', emoji: '🏓', comp: Pong, how: 'Up / Down or mouse' },
   { key: 'breakout', name: 'Brick Breaker', emoji: '🧱', comp: Breakout, how: 'Left / Right or mouse' },

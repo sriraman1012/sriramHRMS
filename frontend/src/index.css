@@ -1447,6 +1447,16 @@ input[type='checkbox'],
   to { stroke-dasharray: 2 60; stroke-dashoffset: -60; }
 }
 
+/* Blocked-arrow feedback shake (Break Zone "Tap Away Arrows" game). */
+@keyframes arrowShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+.arrow-shake { animation: arrowShake 0.3s ease; }
+
 /* =====================================================================
    Neumorphic tick checkbox — Uiverse.io by chase2k25 (scoped .tickbox).
    Unchecked = grey X; checked = green tick on a soft green pad.

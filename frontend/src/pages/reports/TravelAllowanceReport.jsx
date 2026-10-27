@@ -9,7 +9,7 @@ import DateRangeFilter from '../../components/DateRangeFilter.jsx'
 import SearchBox from '../../components/SearchBox.jsx'
 import CopyButton from '../../components/CopyButton.jsx'
 import TravelDetailModal from '../../components/TravelDetailModal.jsx'
-import { exportReportPdf } from '../../reportPdf.js'
+import { exportReimbursementForms } from '../../travelReimbursementPdf.js'
 import { useRights } from '../../context/RightsContext.jsx'
 
 const now = new Date()
@@ -115,17 +115,10 @@ export default function TravelAllowanceReport() {
     XLSX.utils.book_append_sheet(wb, ws2, 'Detail')
     XLSX.writeFile(wb, `Travel_Allowance_${range.from}_to_${range.to}.xlsx`)
   }
+  // PDF export → one single-page UNIPRO "Expense Reimbursement Form" per record.
   const exportPdf = () => {
-    exportReportPdf({
-      title: 'Travel Allowance Report', subtitle: `${rangeLabel}  ·  ${deptLabel}`,
-      head: ['S.No', ...COLS.map((c) => c.label)], aligns: ['left', ...COLS.map((c) => c.align)],
-      body: filtered.map((r, i) => [i + 1, ...COLS.map((c) => c.xl(r))]),
-      sections: [{
-        heading: `Detail — Expense Breakdown (${rangeLabel})`,
-        head: ['S.No', ...DETAIL_COLS.map((c) => c.label)],
-        body: filtered.map((r, i) => [i + 1, ...DETAIL_COLS.map((c) => c.val(r))]),
-      }],
-    })
+    if (!filtered.length) { window.alert('No travel allowances to export in this range.'); return }
+    exportReimbursementForms(filtered)
   }
 
   return (
